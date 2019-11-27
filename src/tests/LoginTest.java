@@ -38,7 +38,7 @@ import pages.WriteArticlePage;
 			@BeforeTest
 			public void loginApplication() throws InterruptedException {
 				loginPage = new LoginPage(driver);
-				homePage = loginPage.login("phanisworld1@gmail.com", "Password@123");
+				homePage = loginPage.login("*****@gmail.com", "*****");
 			}
 
 			@Test
