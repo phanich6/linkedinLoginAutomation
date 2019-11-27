@@ -1,9 +1,6 @@
 package tests;
 
-	//public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -38,7 +35,7 @@ import pages.WriteArticlePage;
 			@BeforeTest
 			public void loginApplication() throws InterruptedException {
 				loginPage = new LoginPage(driver);
-				homePage = loginPage.login("*****@gmail.com", "*****");
+				homePage = loginPage.login("XXXX@gmail.com", "XXXX");
 			}
 
 			@Test
@@ -46,26 +43,26 @@ import pages.WriteArticlePage;
 				writeArticlePage = new WriteArticlePage(driver);
 				homePage.clickWriteArticle();
 				writeArticlePage.writeHeader("Test Header2");
-				Thread.sleep(2000);
+				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 				writeArticlePage.writePara("Test Para2");
-				Thread.sleep(2000);
+				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 				writeArticlePage.publishArticle();
-				Thread.sleep(2000);
+				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			}
 
 			@AfterTest
 			public void logout() throws InterruptedException {
-				//homePage.logout();
 			}
 
-			
-			//homePage.logout();
 			@AfterSuite
-			//homePage.logout();
-			public void quit(){
+			public void quit() throws InterruptedException{
+			homePage.logout();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			driver.quit();
 			}
 
 	}
 		
+		
+
 		
